@@ -1,0 +1,33 @@
+{
+  "name": "techexpert-tpv-printer",
+  "version": "2.0.0",
+  "description": "TechExpert TPV - Printer Agent (Tunnel + Tray)",
+  "main": "agent.js",
+  "bin": "agent.js",
+  "pkg": {
+    "assets": [
+      "config.json",
+      "README.md"
+    ],
+    "targets": [
+      "node18-linux-x64",
+      "node18-win-x64",
+      "node18-macos-x64",
+      "node18-macos-arm64"
+    ]
+  },
+  "scripts": {
+    "build": "cd tray && python3 build-all.py",
+    "build-linux": "pkg agent.js --targets node18-linux-x64 --output builds/agent-linux-x64 --public",
+    "build-win": "pkg agent.js --targets node18-win-x64 --output builds/agent-win-x64.exe --public",
+    "build-mac": "pkg agent.js --targets node18-macos-x64 --output builds/agent-macos-x64 --public",
+    "build-mac-arm": "pkg agent.js --targets node18-macos-arm64 --output builds/agent-macos-arm64 --public"
+  },
+  "dependencies": {
+    "escpos": "^3.0.0-alpha.6",
+    "ws": "^8.21.0"
+  },
+  "optionalDependencies": {
+    "escpos-usb": "^3.0.0-alpha.4"
+  }
+}

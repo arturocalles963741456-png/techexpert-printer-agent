@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+builds/
+downloads/
+pkg/
+macos-packaging/output/
+macos-packaging/pkg-work/
+macos-packaging/notarize-work/
+
+# Xcode
+*.xcuserdata
+*.xcworkspace/xcuserdata
+DerivedData/
+build/
+
+# macOS
+.DS_Store
+*.dmg
+*.ipa
+
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python (old mac-app)
+__pycache__/
+*.pyc

@@ -1,0 +1,42 @@
+# ─────────────────────────────────────────────────
+# TechExpert Printer Agent — Post-install script
+# Se ejecuta como root durante instalación del .pkg
+# ─────────────────────────────────────────────────
+#!/bin/bash
+set -e
+
+TARGET="/Applications/TechExpert TPV Printer.app"
+LOG="/tmp/techexpert-printer-install.log"
+
+echo "=== TechExpert Printer Agent PostInstall ===" > "$LOG"
+echo "Target: $TARGET" >> "$LOG"
+date >> "$LOG"
+
+if [ ! -d "$TARGET" ]; then
+  echo "❌ App no encontrada en $TARGET" | tee -a "$LOG"
+  exit 0
+fi
+
+echo "✅ App encontrada" >> "$LOG"
+
+# 1. Limpiar atributos extendidos (cuarentena, etc)
+xattr -cr "$TARGET" 2>&1 | tee -a "$LOG" || true
+echo "✅ xattr -cr completado" >> "$LOG"
+
+# 2. Permisos
+chmod -R 755 "$TARGET" 2>&1 | tee -a "$LOG" || true
+echo "✅ Permisos 755" >> "$LOG"
+
+# 3. Firma ad-hoc
+if codesign --force --deep --sign - "$TARGET" 2>&1 | tee -a "$LOG"; then
+  echo "✅ Firma ad-hoc OK" >> "$LOG"
+else
+  echo "❌ codesign falló" >> "$LOG"
+  exit 1
+fi
+
+# 4. Verificación
+codesign -dv "$TARGET" 2>&1 | tee -a "$LOG" || true
+
+echo "=== Instalación completada ===" >> "$LOG"
+exit 0

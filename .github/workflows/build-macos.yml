@@ -1,0 +1,117 @@
+# ─────────────────────────────────────────────────
+# TechExpert Printer Agent — Build + .pkg (ad-hoc)
+# Corre en macOS runner de GitHub Actions
+# ─────────────────────────────────────────────────
+name: Build macOS .pkg (adhoc)
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (ej: 2.0.1)'
+        required: true
+        type: string
+  push:
+    tags:
+      - 'v*'
+
+env:
+  APP_NAME: "TechExpert TPV Printer"
+  BUNDLE_ID: "com.techexpert.printeragent"
+  PROJECT_PATH: "mac-swift-app/TechExpertPrinterAgent/TechExpertPrinterAgent.xcodeproj"
+  SCHEME: "TechExpertPrinterAgent"
+  PKG_NAME: "TechExpert-TPV-Printer-Installer.pkg"
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        arch: [x86_64]              # Intel build; añadir arm64 para universal
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🔍 Verificar entorno
+        run: |
+          echo "Xcode: $(xcodebuild -version | head -1)"
+          echo "SDK: $(xcrun --show-sdk-path)"
+          lipo -info mac-swift-app/TechExpertPrinterAgent/TechExpertPrinterAgent/agent-macos-x64 || true
+          otool -L mac-swift-app/TechExpertPrinterAgent/TechExpertPrinterAgent/agent-macos-x64 | head -10 || true
+
+      - name: 🏗️ Compilar .app con xcodebuild
+        run: |
+          xcodebuild \
+            -project "${{ env.PROJECT_PATH }}" \
+            -scheme "${{ env.SCHEME }}" \
+            -configuration Release \
+            -derivedDataPath build/derived \
+            clean build \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION=NO \
+            ARCHS=${{ matrix.arch }}
+
+      - name: 📦 Localizar .app compilado
+        id: find_app
+        run: |
+          APP_PATH=$(find build/derived -name "*.app" -type d | head -1)
+          if [ -z "$APP_PATH" ]; then
+            echo "❌ .app no encontrado"
+            exit 1
+          fi
+          echo "✅ App en: $APP_PATH"
+          echo "app_path=$APP_PATH" >> $GITHUB_OUTPUT
+
+      - name: 🔏 Firma ad-hoc
+        run: |
+          xattr -cr "${{ steps.find_app.outputs.app_path }}"
+          chmod -R 755 "${{ steps.find_app.outputs.app_path }}"
+          codesign --force --deep --sign - "${{ steps.find_app.outputs.app_path }}"
+          codesign -dv "${{ steps.find_app.outputs.app_path }}"
+
+      - name: 📦 Empaquetar .pkg
+        run: |
+          mkdir -p output
+          pkgbuild \
+            --root "${{ steps.find_app.outputs.app_path }}" \
+            --identifier "${{ env.BUNDLE_ID }}" \
+            --version "${{ github.event.inputs.version || '2.0.0' }}" \
+            --install-location "/Applications/${{ env.APP_NAME }}.app" \
+            --scripts macos-packaging/scripts \
+            "output/${{ env.PKG_NAME }}"
+          echo "✅ .pkg generado: $(ls -lh output/${{ env.PKG_NAME }})"
+
+      - name: 🔍 Verificar .pkg
+        run: |
+          pkgutil --payload-files "output/${{ env.PKG_NAME }}" | head -10
+          echo "... ($(pkgutil --payload-files "output/${{ env.PKG_NAME }}" | wc -l) archivos totales)"
+
+      - name: 📤 Subir artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PKG_NAME }}
+          path: output/${{ env.PKG_NAME }}
+          retention-days: 30
+
+      - name: 🏷️ Calcular SHA256
+        run: |
+          shasum -a 256 "output/${{ env.PKG_NAME }}" > "output/${{ env.PKG_NAME }}.sha256"
+          cat "output/${{ env.PKG_NAME }}.sha256"
+
+      - name: 📤 Subir SHA256
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PKG_NAME }}.sha256
+          path: output/${{ env.PKG_NAME }}.sha256
+          retention-days: 30
+
+      - name: 📝 Resumen
+        run: |
+          echo "## ✅ Build completado" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Archivo | Tamaño |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| \`${{ env.PKG_NAME }}\` | $(du -h output/${{ env.PKG_NAME }} | cut -f1) |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Descarga el artifact desde la página del workflow." >> $GITHUB_STEP_SUMMARY

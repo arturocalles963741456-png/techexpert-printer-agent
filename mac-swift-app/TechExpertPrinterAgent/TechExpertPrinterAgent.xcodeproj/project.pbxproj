@@ -1,0 +1,274 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF1B2C3D4E5F6A1B2C3D4E5F6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B2C3D4E5F6A1B2C3D4E5F6 /* App.swift */; };
+		BF2B2C3D4E5F6A1B2C3D4E5F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B2C3D4E5F6A1B2C3D4E5F6 /* ContentView.swift */; };
+		BF3B2C3D4E5F6A1B2C3D4E5F6 /* PrinterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2C3D4E5F6A1B2C3D4E5F6 /* PrinterManager.swift */; };
+		BF4B2C3D4E5F6A1B2C3D4E5F6 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B2C3D4E5F6A1B2C3D4E5F6 /* ConfigManager.swift */; };
+		BF5B2C3D4E5F6A1B2C3D4E5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B2C3D4E5F6A1B2C3D4E5F6 /* Assets.xcassets */; };
+		BF6B2C3D4E5F6A1B2C3D4E5F6 /* agent-macos-x64 in Resources */ = {isa = PBXBuildFile; fileRef = F7B2C3D4E5F6A1B2C3D4E5F6 /* agent-macos-x64 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F1B2C3D4E5F6A1B2C3D4E5F6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		F2B2C3D4E5F6A1B2C3D4E5F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F3B2C3D4E5F6A1B2C3D4E5F6 /* PrinterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterManager.swift; sourceTree = "<group>"; };
+		F4B2C3D4E5F6A1B2C3D4E5F6 /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+		F5B2C3D4E5F6A1B2C3D4E5F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6B2C3D4E5F6A1B2C3D4E5F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F7B2C3D4E5F6A1B2C3D4E5F6 /* agent-macos-x64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "agent-macos-x64"; sourceTree = "<group>"; };
+		P1B2C3D4E5F6A1B2C3D4E5F6 /* TechExpert TPV Printer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TechExpert TPV Printer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		PH3B2C3D4E5F6A1B2C3D4E5F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		G1B2C3D4E5F6A1B2C3D4E5F6 = {
+			isa = PBXGroup;
+			children = (
+				G2B2C3D4E5F6A1B2C3D4E5F6 /* TechExpertPrinterAgent */,
+				G3B2C3D4E5F6A1B2C3D4E5F6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		G2B2C3D4E5F6A1B2C3D4E5F6 /* TechExpertPrinterAgent */ = {
+			isa = PBXGroup;
+			children = (
+				F1B2C3D4E5F6A1B2C3D4E5F6 /* App.swift */,
+				F2B2C3D4E5F6A1B2C3D4E5F6 /* ContentView.swift */,
+				F3B2C3D4E5F6A1B2C3D4E5F6 /* PrinterManager.swift */,
+				F4B2C3D4E5F6A1B2C3D4E5F6 /* ConfigManager.swift */,
+				F6B2C3D4E5F6A1B2C3D4E5F6 /* Assets.xcassets */,
+				F5B2C3D4E5F6A1B2C3D4E5F6 /* Info.plist */,
+				F7B2C3D4E5F6A1B2C3D4E5F6 /* agent-macos-x64 */,
+			);
+			path = TechExpertPrinterAgent;
+			sourceTree = "<group>";
+		};
+		G3B2C3D4E5F6A1B2C3D4E5F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				P1B2C3D4E5F6A1B2C3D4E5F6 /* TechExpert TPV Printer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		T1B2C3D4E5F6A1B2C3D4E5F6 /* TechExpertPrinterAgent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4B2C3D4E5F6A1B2C3D4E5F6 /* Build configuration list for PBXNativeTarget "TechExpertPrinterAgent" */;
+			buildPhases = (
+				PH1B2C3D4E5F6A1B2C3D4E5F6 /* Sources */,
+				PH3B2C3D4E5F6A1B2C3D4E5F6 /* Frameworks */,
+				PH2B2C3D4E5F6A1B2C3D4E5F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TechExpertPrinterAgent;
+			productName = TechExpertPrinterAgent;
+			productReference = P1B2C3D4E5F6A1B2C3D4E5F6 /* TechExpert TPV Printer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1B2C3D4E5F6A1B2C3D4E5F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					T1B2C3D4E5F6A1B2C3D4E5F6 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = C3B2C3D4E5F6A1B2C3D4E5F6 /* Build configuration list for PBXProject "TechExpertPrinterAgent" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "es-ES";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				"es-ES",
+				Base,
+			);
+			mainGroup = G1B2C3D4E5F6A1B2C3D4E5F6;
+			productRefGroup = G3B2C3D4E5F6A1B2C3D4E5F6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				T1B2C3D4E5F6A1B2C3D4E5F6 /* TechExpertPrinterAgent */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		PH2B2C3D4E5F6A1B2C3D4E5F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF5B2C3D4E5F6A1B2C3D4E5F6 /* Assets.xcassets in Resources */,
+				BF6B2C3D4E5F6A1B2C3D4E5F6 /* agent-macos-x64 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		PH1B2C3D4E5F6A1B2C3D4E5F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF1B2C3D4E5F6A1B2C3D4E5F6 /* App.swift in Sources */,
+				BF2B2C3D4E5F6A1B2C3D4E5F6 /* ContentView.swift in Sources */,
+				BF3B2C3D4E5F6A1B2C3D4E5F6 /* PrinterManager.swift in Sources */,
+				BF4B2C3D4E5F6A1B2C3D4E5F6 /* ConfigManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C1B2C3D4E5F6A1B2C3D4E5F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C2B2C3D4E5F6A1B2C3D4E5F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C5B2C3D4E5F6A1B2C3D4E5F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechExpertPrinterAgent/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techexpert.printeragent;
+				PRODUCT_NAME = "TechExpert TPV Printer";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C6B2C3D4E5F6A1B2C3D4E5F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechExpertPrinterAgent/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techexpert.printeragent;
+				PRODUCT_NAME = "TechExpert TPV Printer";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3B2C3D4E5F6A1B2C3D4E5F6 /* Build configuration list for PBXProject "TechExpertPrinterAgent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1B2C3D4E5F6A1B2C3D4E5F6 /* Debug */,
+				C2B2C3D4E5F6A1B2C3D4E5F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4B2C3D4E5F6A1B2C3D4E5F6 /* Build configuration list for PBXNativeTarget "TechExpertPrinterAgent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5B2C3D4E5F6A1B2C3D4E5F6 /* Debug */,
+				C6B2C3D4E5F6A1B2C3D4E5F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1B2C3D4E5F6A1B2C3D4E5F6 /* Project object */;
+}
