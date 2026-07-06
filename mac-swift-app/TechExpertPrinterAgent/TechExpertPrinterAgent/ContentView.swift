@@ -181,7 +181,10 @@ struct ContentView: View {
                 .buttonStyle(.plain)
                 .font(.system(size: 9))
                 .foregroundColor(AppTheme.primaryBlue)
-                .cursor(.pointingHand)
+                .onHover { isHovering in
+                        if isHovering { NSCursor.pointingHand.push() }
+                        else { NSCursor.pop() }
+                    }
             }
 
             ScrollViewReader { proxy in

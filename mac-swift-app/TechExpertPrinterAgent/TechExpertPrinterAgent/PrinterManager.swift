@@ -160,7 +160,9 @@ class PrinterManager: ObservableObject {
             handle.readabilityHandler = { [weak self] handle in
                 let data = handle.availableData
                 guard !data.isEmpty, let output = String(data: data, encoding: .utf8) else { return }
-                self?.parseOutput(output)
+                DispatchQueue.main.async {
+                    self?.parseOutput(output)
+                }
             }
 
         } catch {
